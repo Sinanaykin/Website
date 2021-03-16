@@ -1,0 +1,188 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Kullanici.master.cs" Inherits="SporveBeslenme.Kullanici" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <link href="css/grid_12.css" rel="stylesheet" />
+    <link href="css/slider.css" rel="stylesheet" />
+    <link href="Kullanici.css" rel="stylesheet" />
+    <link href="css/footer.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <script src="js/jquery-1.7.min.js"></script>
+    <script src="js/jquery.easing.1.3.js"></script>
+    <script src="js/tms-0.3.js"></script>
+    <script src="js/tms_presets.js"></script>
+    <script src="js/cufon-yui.js"></script>
+    <script src="js/Asap_400.font.js"></script>
+    <script src="js/Coolvetica_400.font.js"></script>
+    <script src="js/Kozuka_M_500.font.js"></script>
+    <script src="js/cufon-replace.js"></script>
+    <script src="js/FF-cash.js"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .auto-style1 {
+            width: 100%;
+            height: 51px;
+        }
+
+        .auto-style2 {
+            height: 26px;
+            text-align: center;
+            font-weight: 700;
+            background-color: #FFFFFF;
+        }
+
+        .auto-style4 {
+            width: 1000px;
+            height: 30px;
+        }
+
+        .auto-style5 {
+            width: 1000px;
+            height: 50px;
+        }
+
+        .auto-style7 {
+            height: 250px;
+            width: 1000px;
+        }
+
+        .auto-style8 {
+            font-size: medium;
+        }
+
+        .auto-style9 {
+            font-size: large;
+            color: #FF0000;
+        }
+    </style>
+    <script>
+        $(window).load(function () {
+            $('.slider')._TMS({
+                prevBu: '.prev',
+                nextBu: '.next',
+                pauseOnHover: true,
+                pagNums: false,
+                duration: 600,
+                easing: 'easeOutQuad',
+                preset: 'Fade',
+                slideshow: 5000,
+                pagination: '.pagination',
+                waitBannerAnimation: false,
+                banners: 'fade'
+            })
+        })
+    </script>
+</head>
+<body class="body-color">
+    <form id="form1" runat="server">
+        <div style="margin-left: 300px; background-color: cadetblue;" class="auto-style7">
+            <div class="slider">
+                <ul class="items">
+                    <li>
+                        <img class="img" src="resimler/resim4.jpg" alt="" />
+                    </li>
+                    <li>
+                        <img class="img" src="resimler/resim7.jpg" alt="" />
+                    </li>
+                    <li>
+                        <img class="img" src="resimler/resim6.jpg" alt="" />
+                    </li>
+                    <li>
+                        <img class="img" src="resimler/resim5.jpg" alt="" />
+                    </li>
+                    <li>
+                        <img class="img" src="resimler/resim2.jpg" alt="" />
+                    </li>
+                    <li>
+                        <img class="img" src="resimler/resim3.jpg" alt="" />
+                    </li>
+                    <li>
+                        <img class="img" src="resimler/resim8.jpg" alt="" />
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div style="margin-left: 300px; width: 1000px; height: 30px;">&nbsp;</div>
+        <div style="margin-left: 300px; background-color: cadetblue; text-align: left;" class="auto-style5">
+            <table class="auto-style1">
+                <tr>
+                    <td class="auto-style2"><a href="AnaSayfa.aspx">ANA SAYFA</a></td>
+                    <td class="auto-style2"><a href="GununYemegi.aspx">GÜNÜN ÖĞÜNLERİ</a></td>
+                    <td class="auto-style2"><a href="Duyurular.aspx">DUYURULAR</a></td>
+                    <td class="auto-style2"><a href="Hakkimizda.aspx">HAKKIMIZDA</a></td>
+                    <td class="auto-style2"><a href="iletisim.aspx">İLETİŞİM</a></td>
+                </tr>
+            </table>
+        </div>
+        <div style="margin-left: 300px;" class="auto-style4">&nbsp;</div>
+        <div style="margin-left: 300px; width: 1000px; height: 400px;">
+
+            <div style="width: 299px; float: left; height: auto; background-color: cadetblue; margin-left: 0px">
+                <strong><span class="auto-style9">KATEGORİLER</span></strong><br />
+                <br />
+                <asp:DataList ID="DataList1" runat="server" Width="301px">
+                    <ItemTemplate>
+                        <div style="border: thin solid #CCCCCC">
+                            <a href="KategoriDetay.aspx?Kategoriid=<%#Eval("Kategoriid")%>">
+                                <strong>
+                                    <asp:Label ID="Label1" runat="server" CssClass="auto-style8" Text='<%# Eval("KategoriAd") %>'></asp:Label>
+                                </strong></a>
+                            &nbsp;(
+                         <asp:Label ID="Label2" runat="server" Text='<%# Eval("KategoriAdet") %>' CssClass="auto-style8"></asp:Label>
+                            )
+                        </div>
+                    </ItemTemplate>
+                </asp:DataList>
+            </div>
+
+            <div style="width: 600px; height: auto; background-color: cadetblue; margin-left: 400px;">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+
+
+
+        </div>
+
+        </div> 
+
+        <div style="margin-left: 300px; width: 1000px; height: 400px; margin-top: 50px;">
+
+            <div style="width: 299px; float: left; height: auto; background-color: cadetblue; margin-left: 0px">
+                <span class="auto-style9"><strong>BESİNLER</strong></span><br />
+                <br />
+                <asp:DataList ID="DataList2" runat="server" Width="301px">
+                    <ItemTemplate>
+                        <div style="border: thin solid #CCCCCC">
+                            <a href="KategoriDetay2.aspx?Kategori2id=<%#Eval("Kategori2id")%>">
+                                <strong>
+                                    <asp:Label ID="Label3" runat="server" CssClass="auto-style8" Text='<%# Eval("Kategori2Ad") %>'></asp:Label>
+                                </strong></a>
+                            &nbsp;(
+                         <asp:Label ID="Label4" runat="server" Text='<%# Eval("Kategori2Adet") %>' CssClass="auto-style8"></asp:Label>
+                            )
+                        </div>
+                    </ItemTemplate>
+                </asp:DataList>
+            </div>
+
+            <div style="width: 600px; height: auto; background-color: cadetblue; margin-left: 400px;">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+
+        </div>
+        <div class="icon-bar">
+            <a href="https://facebook.com" class="facebook"><i class="fa fa-facebook"></i></a>
+            <a href="https://twitter.com" class="twitter"><i class="fa fa-twitter"></i></a>
+            <a href="https://gmail.com" class="google"><i class="fa fa-google"></i></a>
+            <a href="https://tr.linkedin.com/" class="linkedin"><i class="fa fa-linkedin"></i></a>
+            <a href="https://youtube.com" class="youtube"><i class="fa fa-youtube"></i></a>
+        </div>
+    </form>
+</body>
+</html>
